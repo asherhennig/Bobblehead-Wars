@@ -9,8 +9,12 @@ public class Gun : MonoBehaviour
 
     void fireBullet ()
     {
-        //1
-
+        // 1
+        GameObject bullet = Instantiate(bulletPrefab) as GameObject;
+        // 2
+        bullet.transform.position = launchPosition.position;
+        // 3 
+        bullet.GetComponent<Rigidbody>().velocity = transform.parent.forward * 100;
     }
 
     // Start is called before the first frame update
@@ -22,6 +26,12 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!IsInvoking("fireBullet"))
+            {
+                InvokeRepeating("fireBullet", 0f, 0.1f);
+            }
+        }
     }
 }
