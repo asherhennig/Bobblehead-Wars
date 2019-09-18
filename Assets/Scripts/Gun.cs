@@ -32,11 +32,12 @@ public class Gun : MonoBehaviour
             {
                 InvokeRepeating("fireBullet", 0f, 0.1f);
             }
+
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            CancelInvoke("fireBulet");
+            CancelInvoke("fireBullet");
         }
     }
 }
