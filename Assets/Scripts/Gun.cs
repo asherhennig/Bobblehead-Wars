@@ -9,11 +9,11 @@ public class Gun : MonoBehaviour
 
     void fireBullet ()
     {
-        // 1
+        // 1    Sets Game Object to Bullet Prefab
         GameObject bullet = Instantiate(bulletPrefab) as GameObject;
-        // 2
+        // 2    Sets start position to front of gun barrel
         bullet.transform.position = launchPosition.position;
-        // 3 
+        // 3    Moves bullets
         bullet.GetComponent<Rigidbody>().velocity = transform.parent.forward * 100;
     }
 
@@ -24,14 +24,19 @@ public class Gun : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+    void LateUpdate()
+    {                   
+        if (Input.GetMouseButtonDown(0))                    
         {
             if (!IsInvoking("fireBullet"))
             {
                 InvokeRepeating("fireBullet", 0f, 0.1f);
             }
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            CancelInvoke("fireBulet");
         }
     }
 }
