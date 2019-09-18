@@ -38,10 +38,28 @@ public class PlayerController : MonoBehaviour
             head.AddForce(transform.right * 150, ForceMode.Acceleration);
         }
 
+        //Green ray that follows mouse
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * 1000, Color.green);
 
+        if (Physics.Raycast(ray, out hit, 1000, layerMask,
+                            QueryTriggerInteraction.Ignore)) ;
 
+        if (hit.point != currentLookTarget)
+        {
+            currentLookTarget = hit.point;
+        }
+
+        //1
+        Vector3 targetPosition = new Vector3(hit.point.x,
+                                            transform.position.y, 
+                                            hit.point.z);
+        //2
+        Quaternion rotation = Quaternion.LookRotation(targetPosition -
+                                                        transform.position);
+        //3
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation,
+                                                Time.deltaTime * 10.0f);
     }
 }
