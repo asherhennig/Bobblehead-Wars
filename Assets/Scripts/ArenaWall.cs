@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallTrigger : MonoBehaviour
+public class ArenaWall: MonoBehaviour
 {
     private Animator arenaAnimator;
 

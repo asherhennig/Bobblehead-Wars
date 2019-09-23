@@ -44,7 +44,9 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 1000, Color.green);
 
         if (Physics.Raycast(ray, out hit, 1000, layerMask,
-                            QueryTriggerInteraction.Ignore)) ;
+                            QueryTriggerInteraction.Ignore))
+        {
+        }
 
         if (hit.point != currentLookTarget)
         {
