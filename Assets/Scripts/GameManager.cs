@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject[] spawnPoints;
-    public GameObject alien;
+    public GameObject player;           //player object
+    public GameObject[] spawnPoints;    //Spawn point object array
+    public GameObject alien;            //Alien object
 
-    public int maxAliensOnScreen;
-    public int totalAliens;
-    public float minSpawnTime;
-    public float maxSpawnTime;
-    public int aliensPerSpawn;
+    public int maxAliensOnScreen;       //Max number of aliens
+    public int totalAliens;             //Total number of aliens
+    public float minSpawnTime;          //Minimum time between spawns
+    public float maxSpawnTime;          //Maximum time between spawns
+    public int aliensPerSpawn;          //Rate of alien spawns
 
-    private int aliensOnScreen = 0;
-    private float generatedSpawnsTime = 0;
-    private float currentSpawnTime = 0;
+    //Private variable initialization
+    private int aliensOnScreen = 0;             //Tracks number of aliens on screen
+    private float generatedSpawnsTime = 0;      //Time between spawns (randomize)
+    private float currentSpawnTime = 0;         //Tracks time since last spawn
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,22 +28,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentSpawnTime += Time.deltaTime;
+        currentSpawnTime += Time.deltaTime;     //Calculates the time since last frame update
 
+        //Spawn time randomizer
         if (currentSpawnTime > generatedSpawnsTime)
         {
             currentSpawnTime = 0;
             generatedSpawnsTime = Random.Range(minSpawnTime, maxSpawnTime);
             if (aliensPerSpawn > 0 && aliensOnScreen < totalAliens)
             {
-                List<int> previousSpawnLocations = new List<int>();
+                List<int> previousSpawnLocations = new List<int>();         //keeps track of spawned aliens
+                //Limits number of spawns to number of spawns points
                 if (aliensPerSpawn > spawnPoints.Length)
                 {
                     aliensPerSpawn = spawnPoints.Length - 1;
                 }
+                //Stop code from spawning more than max number of aliens
                 aliensPerSpawn = (aliensPerSpawn > totalAliens) ?
                     aliensPerSpawn - totalAliens : aliensPerSpawn;
 
+                //Alien Spawning
                 for (int i = 0; i < aliensPerSpawn; i++)
                 {
                     if (aliensOnScreen < maxAliensOnScreen)

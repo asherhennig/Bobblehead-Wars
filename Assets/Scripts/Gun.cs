@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {                   
+        //Fire bullets when player holds down left mouse
         if (Input.GetMouseButtonDown(0))                    
         {
             if (!IsInvoking("fireBullet"))
@@ -34,7 +35,7 @@ public class Gun : MonoBehaviour
             }
 
         }
-
+        //Stop firing when player releases left mouse
         if (Input.GetMouseButtonUp(0))
         {
             CancelInvoke("fireBullet");

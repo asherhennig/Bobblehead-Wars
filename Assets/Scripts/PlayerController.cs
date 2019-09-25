@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 50.0f;
+    public float moveSpeed = 50.0f;     //Movement speed for player
     public Rigidbody head;
     public LayerMask layerMask;
     public Animator bodyAnimator;
@@ -28,17 +28,21 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Player direction controls
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
                                             0, Input.GetAxis("Vertical"));
 
+
         if (moveDirection == Vector3.zero)
         {
-            bodyAnimator.SetBool("IsMoving", false);
+            bodyAnimator.SetBool("IsMoving", false);        //Set Animator to not moving if character vector = 0
         }
+
         else
         {
-            head.AddForce(transform.right * 150, ForceMode.Acceleration);
-            bodyAnimator.SetBool("IsMoving", true);
+            head.AddForce(transform.right * 150, ForceMode.Acceleration);            //head bobble functionality
+
+            bodyAnimator.SetBool("IsMoving", true);         //Set Animator to moving if character vector != 0
         }
 
         //Green ray that follows mouse
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
         {
         }
 
+        //Set look direction to mouse location
         if (hit.point != currentLookTarget)
         {
             currentLookTarget = hit.point;

@@ -16,10 +16,12 @@ public class Projectile : MonoBehaviour
         
     }
 
+    //Destroys bullets when they go off screen
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
     }
+    //Destroys bullets when they collide with a game object
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);

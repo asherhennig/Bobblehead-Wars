@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Alien : MonoBehaviour
 {
-    public Transform target;
+    public Transform target;        //Target for alien
     private NavMeshAgent agent;
 
     public float navigationUpdate;
@@ -34,6 +34,6 @@ public class Alien : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        Destroy(gameObject);        //Destroys alien on contact with selected game object.
     }
 }

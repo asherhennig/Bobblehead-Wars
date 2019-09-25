@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 374}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -92,10 +92,10 @@ MonoBehaviour:
     y: 30
     width: 1904
     height: 931
-  m_MinSize: {x: 909, y: 324}
-  m_MaxSize: {x: 22006, y: 10024}
+  m_MinSize: {x: 917, y: 348}
+  m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 35
+  controlID: 157
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,8 +138,8 @@ MonoBehaviour:
     y: 0
     width: 957
     height: 931
-  m_MinSize: {x: 200, y: 324}
-  m_MaxSize: {x: 4002, y: 8024}
+  m_MinSize: {x: 202, y: 348}
+  m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
   controlID: 17
 --- !u!114 &7
@@ -213,8 +213,8 @@ MonoBehaviour:
     y: 0
     width: 348
     height: 931
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 74}
+  m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -792,9 +792,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 0ab3ffff
+      m_SelectedIDs: b8230000
       m_LastClickedID: 0
-      m_ExpandedIDs: d6fbffff062b0000
+      m_ExpandedIDs: d6fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -891,20 +891,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animations
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Animations
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\4hs13\Documents\Game 312\Bobblehead-Wars
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 66270000
-    m_LastClickedID: 10086
-    m_ExpandedIDs: 000000003c260000b62600004a2800004e2a000000ca9a3b
+    m_SelectedIDs: 1c290000
+    m_LastClickedID: 10524
+    m_ExpandedIDs: 000000003c260000b62600004a280000382a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -932,7 +932,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003c260000b62600004a2800004e2a0000
+    m_ExpandedIDs: 000000003c260000b62600004a280000382a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
