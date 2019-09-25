@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 6eefeefec5fa52440a92a8b4e81306f3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5246df4ae686c7549842d4d9d900fc6f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eefeefec5fa52440a92a8b4e81306f3, type: 3}
 --- !u!4 &79721685 stripped
@@ -980,6 +984,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &556185994 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 6eefeefec5fa52440a92a8b4e81306f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 79721684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &676275262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1566,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 4096
+  bodyAnimator: {fileID: 556185994}
 --- !u!143 &1272076436
 CharacterController:
   m_ObjectHideFlags: 0

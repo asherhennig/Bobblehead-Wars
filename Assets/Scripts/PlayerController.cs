@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 50.0f;
     public Rigidbody head;
     public LayerMask layerMask;
+    public Animator bodyAnimator;
+
     private Vector3 currentLookTarget = Vector3.zero;
     private CharacterController characterController;
 
@@ -31,11 +33,12 @@ public class PlayerController : MonoBehaviour
 
         if (moveDirection == Vector3.zero)
         {
-            //TODO
+            bodyAnimator.SetBool("IsMoving", false);
         }
         else
         {
             head.AddForce(transform.right * 150, ForceMode.Acceleration);
+            bodyAnimator.SetBool("IsMoving", true);
         }
 
         //Green ray that follows mouse
