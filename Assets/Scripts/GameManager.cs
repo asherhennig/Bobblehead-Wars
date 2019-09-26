@@ -7,27 +7,58 @@ public class GameManager : MonoBehaviour
     public GameObject player;           //player object
     public GameObject[] spawnPoints;    //Spawn point object array
     public GameObject alien;            //Alien object
+    public GameObject upgradePrefab;
+
+    public Gun gun;
 
     public int maxAliensOnScreen;       //Max number of aliens
-    public int totalAliens;             //Total number of aliens
+    public int totalAliens;             //Total number of aliens    
+    public int aliensPerSpawn;          //Rate of alien spawns
     public float minSpawnTime;          //Minimum time between spawns
     public float maxSpawnTime;          //Maximum time between spawns
-    public int aliensPerSpawn;          //Rate of alien spawns
-
+    public float upgradeMaxTimeSpawn = 7.5f;
+    
     //Private variable initialization
     private int aliensOnScreen = 0;             //Tracks number of aliens on screen
     private float generatedSpawnsTime = 0;      //Time between spawns (randomize)
     private float currentSpawnTime = 0;         //Tracks time since last spawn
+    private float actualUpgradeTime = 0;
+    private float currentUpgradeTime = 0;
+    private bool spawnedUpgrade = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        actualUpgradeTime = Random.Range(upgradeMaxTimeSpawn - 3.0f,
+                            upgradeMaxTimeSpawn);
+        actualUpgradeTime = Mathf.Abs(actualUpgradeTime);
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentUpgradeTime += Time.deltaTime;
+
+        if (currentUpgradeTime > actualUpgradeTime)
+        {
+            //1
+            if (!spawnedUpgrade)
+            {
+                //2
+                int randomNumber = Random.Range(0, spawnPoints.Length - 1);
+                GameObject spawnLocation = spawnPoints[randomNumber];
+                //3
+                GameObject upgrade = Instantiate(upgradePrefab) as GameObject;
+                Upgrade upgradeScript = upgrade.GetComponent<Upgrade>();
+                upgradeScript.gun = gun;
+                upgrade.transform.position = spawnLocation.transform.position;
+                //4
+                spawnedUpgrade = true;
+
+                SoundManager.Instance.PlayOneShot(SoundManager.Instance.powerUpAppear);
+            }
+        }
+
         currentSpawnTime += Time.deltaTime;     //Calculates the time since last frame update
 
         //Spawn time randomizer

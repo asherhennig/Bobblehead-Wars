@@ -41,7 +41,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    public void UpgradedGun()
+    public void UpgradeGun()
     {
         isUpgraded = true;
         currentTime = 0;
@@ -55,7 +55,12 @@ public class Gun : MonoBehaviour
 
     // Update is called once per frame
     void LateUpdate()
-    {                   
+    {
+        currentTime += Time.deltaTime;
+        if (currentTime > upgradeTime && isUpgraded == true)
+        {
+            isUpgraded = false;
+        }
         //Fire bullets when player holds down left mouse
         if (Input.GetMouseButtonDown(0))                    
         {

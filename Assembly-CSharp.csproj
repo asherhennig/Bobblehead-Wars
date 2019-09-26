@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Upgrade.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/4hs13/Documents/Game 312/Bobblehead-Wars/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
