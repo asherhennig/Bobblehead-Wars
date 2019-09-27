@@ -111,9 +111,17 @@ public class GameManager : MonoBehaviour
                                                             newAlien.transform.position.y,
                                                             player.transform.position.z);
                         newAlien.transform.LookAt(targetRotation);
+
+                        alienScript.OnDestroy.AddListener(AlienDestoryed);
                     }
                 }
             }
         }
+    }
+
+    public void AlienDestoryed()
+    {
+        aliensOnScreen -= 1;
+        totalAliens -= 1;
     }
 }

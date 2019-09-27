@@ -99,6 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ad755ffdb156649b17647029259feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDestroy:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   target: {fileID: 0}
   navigationUpdate: 0.5
 --- !u!95 &3868159540372900665
