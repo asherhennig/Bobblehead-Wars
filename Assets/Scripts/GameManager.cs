@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] spawnPoints;    //Spawn point object array
     public GameObject alien;            //Alien object
     public GameObject upgradePrefab;
+    public GameObject deathFloor;
 
     public Gun gun;
 
@@ -117,6 +118,8 @@ public class GameManager : MonoBehaviour
                         newAlien.transform.LookAt(targetRotation);
 
                         alienScript.OnDestroy.AddListener(AlienDestoryed);
+
+                        alienScript.GetDeathParticles().SetDeathFloor(deathFloor);
                     }
                 }
             }
